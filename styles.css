@@ -1,0 +1,149 @@
+/* Шаблон сайта бани «Говорят гости» (v2 «Неон и гости», 19.10). Цвет живёт только на фото; интерфейс ч/б.
+   Движения нет: по правилам пользователя только функциональное (смена цвета на наведении). */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Onest:wght@400;500&family=Noto+Serif+Display:ital,wght@1,300&display=swap');
+:root{
+  --bg:#0C0D0F; --surf:#15171A; --ink:#EDEEEA; --ink2:#A7ACAA; --line:#2A2E31;
+  --disp:'Oswald','Arial Narrow',sans-serif; --sans:'Onest',system-ui,sans-serif; --serif:'Noto Serif Display',Georgia,serif;
+  --wrap:1280px; --gut:20px; --ease:cubic-bezier(.25,1,.5,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--sans)}
+::selection{background:var(--ink);color:var(--bg)}
+img{display:block;width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:var(--ink);color:var(--bg);font:500 16px/1 var(--sans);text-decoration:none;transition:background-color .4s var(--ease),color .4s var(--ease)}
+.btn:hover{background:#FFFFFF}
+.btn.ghost{background:var(--surf);color:var(--ink);box-shadow:inset 0 0 0 1px #6E7471}
+.btn.ghost:hover{background:#23272A}
+.link{display:inline-block;padding:11px 0;font-weight:500;text-underline-offset:5px;text-decoration-thickness:1px;transition:color .4s var(--ease)}
+.link:hover{color:#FFFFFF}
+.who{margin-top:14px;font-size:14px;color:var(--ink2)}
+
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:24px}
+.mark{display:inline-flex;align-items:center;min-height:44px;font:500 19px/1 var(--disp);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+nav{display:none;gap:36px;font-size:15px}
+nav a{text-decoration:none;color:var(--ink2);transition:color .4s var(--ease)}
+nav a:hover{color:var(--ink)}
+header .btn{display:none;min-height:40px;padding:0 18px;font-size:15px}
+
+/* первый экран */
+.hero-img img{aspect-ratio:4/5;object-fit:cover}
+.proof{padding:28px 0 56px}
+h1{font:500 30px/1.08 var(--disp);text-transform:uppercase;letter-spacing:.01em;max-width:18ch;text-wrap:balance}
+.count{margin-top:24px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:end}
+.count b{font:400 clamp(96px,30vw,128px)/.8 var(--disp);letter-spacing:-.02em}
+.count p{font-size:16px;line-height:1.4;color:var(--ink2);padding-bottom:4px}
+.count p strong{color:var(--ink);font-weight:500}
+.count .r{white-space:nowrap}
+.also{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;color:var(--ink2)}
+.proof .cta{display:none}
+
+/* большая цитата */
+.big{padding:24px 0 64px}
+.big blockquote{font:300 italic 34px/1.16 var(--serif);letter-spacing:-.005em;max-width:24ch}
+
+/* пары: фото и слова гостя */
+.echo{display:grid;grid-template-columns:minmax(0,1fr)}
+.echo img{aspect-ratio:4/5;object-fit:cover}
+.echo .say{padding:28px var(--gut) 64px}
+.say blockquote{font:300 italic clamp(30px,10vw,36px)/1.14 var(--serif);letter-spacing:-.01em;overflow-wrap:break-word}
+
+/* остальные гости */
+.more{padding:8px 0 72px}
+.more h2{font:500 26px/1.1 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.qs{margin-top:28px;display:grid;grid-template-columns:1fr;gap:30px}
+.qs blockquote{font:300 italic 22px/1.3 var(--serif)}
+.more .link{margin-top:22px}
+
+/* бани и цены */
+.rooms{padding:72px 0 64px;border-top:1px solid var(--line)}
+h2.title{font:500 40px/1 var(--disp);text-transform:uppercase;letter-spacing:.01em}
+.list{margin-top:28px;border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:20px 0 22px;border-bottom:1px solid var(--line)}
+.row h3{font:500 22px/1.15 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.row .desc{grid-column:1/-1;color:var(--ink2);font-size:15px;line-height:1.45;max-width:60ch}
+.row .price{font:400 24px/1.1 var(--disp);white-space:nowrap;text-align:right}
+.row .price small{display:block;margin-top:6px;font:400 13px/1.3 var(--sans);color:var(--ink2);white-space:normal;max-width:22ch;margin-left:auto}
+.rooms .note{margin-top:28px;color:var(--ink2);font-size:15px;max-width:60ch}
+.rooms .incl{margin-top:36px;display:grid;gap:8px}
+.incl blockquote{font:300 italic 24px/1.25 var(--serif)}
+
+/* бронь */
+.band img{aspect-ratio:4/3;object-fit:cover}
+.book{padding:28px 0 88px}
+.book .say{padding:0}
+.book .grid{display:grid;gap:44px;margin-top:56px}
+.book h2{font:500 32px/1.05 var(--disp);text-transform:uppercase}
+.book p.lead{margin-top:14px;color:var(--ink2);max-width:36ch}
+.msgs{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msgs .btn{width:100%;padding:0 12px}
+.info dl{display:grid;gap:18px}
+.info dt{font-size:14px;color:var(--ink2)}
+.info dd{margin-top:4px}
+footer{border-top:1px solid var(--line);padding:26px 0 100px;font-size:14px;color:var(--ink2)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bg);border-top:1px solid var(--line);padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.bar .btn{width:100%;min-height:50px;padding:0 10px}
+
+@media (min-width:900px){
+  :root{--gut:48px}
+  nav{display:flex}
+  header .btn{display:inline-flex}
+  .bar{display:none}
+  footer{padding-bottom:26px}
+  .hero{display:grid;grid-template-columns:7fr 5fr;min-height:calc(100dvh - 60px)}
+  .hero-img img{aspect-ratio:auto;height:100%;min-height:560px;max-height:960px}
+  .proof{display:flex;flex-direction:column;justify-content:center;padding:56px var(--gut) 56px 56px}
+  .proof .wrap{padding:0;margin:0}
+  h1{font-size:clamp(32px,min(3vw,5.2vh),42px);max-width:24ch}
+  .count{margin-top:36px;grid-template-columns:1fr;gap:22px}
+  .count b{font-size:clamp(120px,min(13vw,21vh),210px)}
+  .also{margin-top:28px}
+  .proof .cta{display:flex;flex-wrap:wrap;gap:20px 28px;align-items:center;margin-top:24px}
+  .big{padding:120px 0}
+  .big blockquote{font-size:64px;max-width:22ch}
+  .echo{grid-template-columns:7fr 5fr;align-items:center;margin-bottom:120px}
+  .echo.flip{grid-template-columns:5fr 7fr}
+  .echo.flip img{order:2}
+  .echo img{aspect-ratio:5/4;height:100%}
+  .echo .say{padding:0 48px}
+  .say blockquote{font-size:56px}
+  .more{padding:0 0 120px}
+  .more h2{font-size:34px}
+  .qs{grid-template-columns:repeat(2,1fr);gap:48px 64px;max-width:1100px}
+  .qs blockquote{font-size:28px}
+  .rooms{padding:120px 0}
+  h2.title{font-size:72px}
+  .row{grid-template-columns:minmax(220px,4fr) 6fr auto;align-items:baseline;gap:24px;padding:28px 0}
+  .row .desc{grid-column:auto}
+  .row h3{font-size:26px}
+  .row .price{font-size:30px}
+  .rooms .incl{grid-template-columns:auto 1fr;align-items:baseline;gap:24px;margin-top:56px}
+  .band img{aspect-ratio:21/9}
+  .book{padding:64px 0 120px}
+  .book .say blockquote{font-size:56px;max-width:24ch}
+  .book .grid{grid-template-columns:7fr 5fr;gap:80px;margin-top:88px}
+  .book h2{font-size:44px}
+  .msgs{grid-template-columns:repeat(4,auto);justify-content:start}
+}
+@media (max-width:379px){
+  .count{grid-template-columns:1fr;gap:12px}
+}
+@media (min-width:900px) and (max-height:820px){
+  .proof{padding-top:32px;padding-bottom:32px}
+  .count{margin-top:22px;gap:14px}
+  .count b{font-size:clamp(110px,min(13vw,17vh),210px)}
+  .also{margin-top:16px;padding-top:14px}
+  .proof .cta{margin-top:16px}
+}
+@media (min-width:900px) and (max-width:1199px){
+  h1{font-size:36px}
+  .big blockquote{font-size:48px}
+  .say blockquote{font-size:44px}
+}
